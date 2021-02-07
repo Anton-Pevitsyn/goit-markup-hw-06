@@ -17,6 +17,10 @@
   --backdrop-color: rgba(0, 0, 0, 0.2);
   --hover-card-background-color: rgba(33, 150, 243, 0.9);
   --animation: cubic-bezier(0.4, 0, 0.2, 1);
+  --form-border-color: rgba(33, 33, 33, 0.2);
+  --placeholder-color: rgba(117, 117, 117, 0.5);
+  --checkbox-icon-color: rgba(33, 33, 33, 1);
+  --form-send-color: rgba(255, 255, 255, 0.3);
 }
 /* 
     цвет оснвного текста + адрес #757575;
@@ -52,6 +56,9 @@ body {
   padding-right: 15px;
 }
 /*header style*/
+.header {
+  border-bottom: 1px solid rgba(236, 236, 236, 1);
+}
 .header-container {
   display: flex;
 }
@@ -142,7 +149,7 @@ body {
 #activ-link::after {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
   content: '';
   width: 100%;
   height: 4px;
@@ -197,6 +204,7 @@ body {
   font-size: 16px;
   line-height: 30px;
 }
+
 /*title sekton style*/
 
 /*about us section style*/
@@ -550,7 +558,7 @@ body {
   line-height: 28px;
   letter-spacing: 0.03em;
   color: var(--main-title-color);
-  transform: translatey(0);
+  transform: translatey(0%);
 }
 .portfolio-card:focus .hover-transform,
 .portfolio-card:hover .hover-transform {
@@ -607,6 +615,55 @@ footer {
   background-color: var(--footer-background-icon-color);
   color: var(--main-title-color);
 }
+.form-container {
+  margin-left: 93px;
+}
+.form-send input {
+  width: 358px;
+  height: 50px;
+  margin-right: 12px;
+  padding-left: 16px;
+  border: 1px solid var(--form-send-color);
+  border-radius: 4px;
+  background-color: var(--background-section-color);
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--form-send-color);
+}
+.form-send input:focus {
+  outline: none;
+}
+.form-send input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--background-section-color) inset;
+  -webkit-text-fill-color: var(--form-send-color);
+}
+.send-button {
+  position: relative;
+  min-width: 200px;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 29px;
+  outline: none;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.06em;
+  color: var(--main-title-color);
+  border-width: 0;
+  text-align: left;
+}
+.send-button .send-icon {
+  position: absolute;
+  right: 28px;
+  top: 13px;
+}
 
 /* footer style */
 
@@ -633,9 +690,10 @@ footer {
   position: absolute;
   width: 528px;
   height: 581px;
+  padding: 40px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) skew(0deg);
+  transform: translate(-50%, -50%);
   background-color: var(--second-background-color);
   transition: transform 250ms var(--animation);
 }
@@ -649,4 +707,174 @@ footer {
   background-color: var(--second-background-color);
   outline: none;
   border: 0px;
+  transition: color 250ms var(--animation);
 }
+
+.close-button:hover,
+.close-button:focus {
+  color: var(--accent-color);
+}
+
+.modal-title {
+  margin-top: 0px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--header-text-color);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+.form-label {
+  margin-bottom: 4px;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: var(--main-text-color);
+}
+.form-field input {
+  width: 448px;
+  height: 40px;
+  padding-left: 42px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px solid var(--form-border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border 250ms var(--animation);
+}
+
+.form-field input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--main-title-color) inset;
+  -webkit-text-fill-color: var(--logo-color);
+}
+.form-field textarea {
+  resize: none;
+  height: 120px;
+
+  padding: 16px 12px 12px 16px;
+
+  border: 1px solid var(--form-border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border 250ms var(--animation);
+}
+
+.form-field .textarea::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  color: var(--placeholder-color);
+}
+
+.form-item .form-input:hover,
+.form-item .form-input:focus {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+
+.form-item .form-input:hover + .form-icon,
+.form-item .form-input:focus-within + .form-icon {
+  color: var(--accent-color);
+}
+
+.form-link {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  color: var(--accent-color);
+}
+
+.form-policy {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  color: var(--main-text-color);
+}
+
+.button {
+  margin-top: 30px;
+  margin-left: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-width: 200px;
+  height: 50px;
+  outline: none;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.06em;
+  color: var(--main-title-color);
+  border-width: 0;
+}
+
+.button:active {
+  transform: scale(1.01);
+}
+.form-checkbox {
+  margin-top: 20px;
+}
+
+.form-item {
+  position: relative;
+  transition: solid 250ms var(--animation), color 250ms var(--animation);
+}
+.form-item + .form-item {
+  margin-top: 10px;
+}
+
+.form-item .icon {
+  position: absolute;
+  bottom: 11px;
+  left: 12px;
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.icon-ceck {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 9px;
+  border: 2px solid var(--checkbox-icon-color);
+  border-radius: 4px;
+}
+
+.form-policy {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox:checked + .icon-ceck {
+  background-color: var(--accent-color);
+  background-image: url(../img/icon/icon\ check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  border: 2px solid var(--accent-color);
+}
+
+/*   modal style  */
