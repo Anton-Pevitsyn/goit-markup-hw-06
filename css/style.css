@@ -659,7 +659,7 @@ footer {
   border-width: 0;
   text-align: left;
 }
-.send-button .icon {
+.send-button .send-icon {
   position: absolute;
   right: 28px;
   top: 13px;
@@ -749,12 +749,6 @@ footer {
   font-size: 14px;
   transition: border 250ms var(--animation);
 }
-.form-field input:focus {
-  outline: none;
-}
-.form-field textarea:focus {
-  outline: none;
-}
 
 .form-field input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px var(--main-title-color) inset;
@@ -772,7 +766,7 @@ footer {
   transition: border 250ms var(--animation);
 }
 
-.form-field textarea::placeholder {
+.form-field .textarea::placeholder {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -782,19 +776,14 @@ footer {
   color: var(--placeholder-color);
 }
 
-.form-item:hover textarea,
-.form-item:focus textarea {
+.form-item .form-input:hover,
+.form-item .form-input:focus {
   outline: none;
   border: 1px solid var(--accent-color);
 }
 
-.form-item:hover input,
-.form-item:focus input {
-  outline: none;
-  border: 1px solid var(--accent-color);
-}
-
-.form-item:hover {
+.form-item .form-input:hover + .form-icon,
+.form-item .form-input:focus-within + .form-icon {
   color: var(--accent-color);
 }
 
